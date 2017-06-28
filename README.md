@@ -1,17 +1,26 @@
 # 特性
-1、 react
-2、redux
-3、react-router-dom 
+1、 react 
+
+2、redux 
+
+3、react-router-dom  
+
 4、webpack （专注于模块化打包）
+
 5、gulp （专注于工作流）
+
 6、eslint
+
 7、ejs
+
 8、zepto
 
 
 # 作者开发环境
 npm 5.0.3
+
 node v4.6.0
+
 webpack 2.6.1
 
 
@@ -32,31 +41,7 @@ gulp
 
 # 模块目录
 
-.
-├── .babelrc                 		# babel配置
-├── .eslintrc                		# js 检查
-├── webpack-config.js        		# webpack 配置
-├── diy-loader.js        		    # 自己写了一些loader , 留一个口，有需要可以自己加一些loader
-├── gulpfile                 		# gulp工作流配置
-├── src                      		# 程序源文件
-│   ├── main.js              		# 程序启动和渲染
-│   ├── app.js           			# 常用类 ，运行后 ，有 window.reactApp 对象
-│   ├── config.js            		# app.js的配置,可以在这里注入程序
-│   ├── index.html           		# 主页结构
-│   ├── RouteDispatch.js    		# 路由分发
-│   ├── devTool              		# nodeJs一些脚本 
-│   │   ├── cmd              		# 创建模块等命令，如：npm run mod index/index ，生成模块
-│   │   └── ejs             		# 目录下主要放一些命令生成的模板源文件
-│   └── modules             	    # 模块， 主要针对于产品业务来分模块，react组件组成子模块
-│       └── user             		# 用户模块
-│             │── index 			# 子模块 由四个文件组成
-│ 	          │     ├── index.html  # html模板 
-│ 	          │     ├── index.jsx   # react组件
-│ 	          │     ├── index.store.js #redux数据管理
-│ 			  └── index.js 			# 用户首页
-│ 
-│ 	          
-└── tests                           # 单元测试
+<img src="https://static.oschina.net/uploads/space/2017/0628/222955_oHIk_1160364.png" >
 ```
 
 # 常用方法
@@ -82,7 +67,6 @@ var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,o
 3、打包发布
 4、有选择地把模块资源合并
 ......
-
 
 
 
