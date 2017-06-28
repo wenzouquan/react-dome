@@ -26,9 +26,13 @@ webpack 2.6.1
 
 # 开始
 git clone https://github.com/wenzouquan/react-dome.git
+
 cd react-dome
+
 npn install
+
 gulp
+
 
 如果一切顺利： http://localhost:3001 就可以访问首页了
 
