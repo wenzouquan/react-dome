@@ -36,6 +36,7 @@ gulp
 ├── .babelrc                 		# babel配置
 ├── .eslintrc                		# js 检查
 ├── webpack-config.js        		# webpack 配置
+├── diy-loader.js        		    # 自己写了一些loader , 留一个口，有需要可以自己加一些loader
 ├── gulpfile                 		# gulp工作流配置
 ├── src                      		# 程序源文件
 │   ├── main.js              		# 程序启动和渲染

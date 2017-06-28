@@ -1,23 +1,15 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
 var del = require('del');
 var changed = require('gulp-changed');
 var remember = require('gulp-remember');
-var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
 var gutil = require("gulp-util");
 var express = require('express');
 const debug = require('debug')('app:server');
 const path = require('path');
-var ejs = require('gulp-ejs');
 var app = express();
 // var webpack = require("gulp-webpack");
-var reload = browserSync.reload;
 
 /**
  * 并非所有的任务都是基于流，例如删除文件
@@ -34,7 +26,7 @@ function clean() {
  * @return {[type]} [description]
  */
 function watch() {
-  gulp.watch(["./src/**/*.js"], gulp.series(gulp.task('eslint')));
+  gulp.watch(["./src/modules/**/*.js", "./src/*.js"], gulp.series(gulp.task('eslint')));
   //生成./src/main.js
   gulp.watch(["/src/modules/*/*.js"], gulp.series(gulp.task('makeEntry')));
 
