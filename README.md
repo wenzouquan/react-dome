@@ -45,14 +45,19 @@ gulp
 ```
 
 # 常用方法
+
 一、 路由 
+
 如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 {id:12,name:'wen190'} 
+
 访问此路由，第一次会自动调用init方法，请查看index.store.js。
 
 二、app.js 内置方法
 
 1、store方法
+
 reactApp.getStore("user/index") ; //返回的是 user/index/index.store.js 的redux对象
+
 var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,oldVal){
 	console.log(newVal);
 }) //监听 user/index 模块的state.userInfo值的变化  ， 一般使用场景 ，异步处理时，数据会来得晚一些
@@ -62,9 +67,13 @@ var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,o
 就是那么简单，clone 下来改吧改吧 。。。 时间有限，期待作者更新
 
 下一步优化计划：
+
 1、多页面切换时，页面浏览位置不能变
+
 2、浏览内存回收
+
 3、打包发布
+
 4、有选择地把模块资源合并
 ......
 
