@@ -7,16 +7,17 @@
 
 4、webpack （专注于模块化打包）
 
-5、gulp （专注于工作流）
+5、gulp （专注于工作流，比如文件改变，自动载入组件）
 
-6、eslint
+6、eslint （js 检查）
 
-7、ejs
+7、ejs  （这里主要用于node服务端 模板解析）
 
-8、zepto
+8、zepto （工具方法）
 
 
 # 作者开发环境
+
 npm 5.0.3
 
 node v4.6.0
@@ -25,6 +26,7 @@ webpack 2.6.1
 
 
 # 开始
+
 git clone https://github.com/wenzouquan/react-dome.git
 
 cd react-dome
@@ -38,9 +40,13 @@ gulp
 
 
 # 用起来真的很简单
-首先在根目录（react-dome）下执行 npm run mod index/index , 这样就会在 src/modules目录，生成对应该的模块
+
+想添加一个新模块？ 
+
+那么可以在根目录（react-dome）下执行 npm run mod index/index , 这样就会在 src/modules目录，生成对应该的模块
 
 然后不需要配置，在浏览器访问地址：http://localhost:3001/#/index/index 就可以访问到刚才生成的模块了。
+
 
 
 # 模块目录
@@ -58,7 +64,7 @@ gulp
 
 二、app.js 内置方法
 
-1、store方法
+1、store，可通过操作数据来改变显示页面， 可以与服务器交互
 
 reactApp.getStore("user/index") ; //返回的是 user/index/index.store.js 的redux对象
 
@@ -66,9 +72,13 @@ var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,o
 	console.log(newVal);
 }) //监听 user/index 模块的state.userInfo值的变化  ， 一般使用场景 ，异步处理时，数据会来得晚一些
 
+reactApp.getStore("user/index").setState({}) ;//可以在外部执行修改数据
+
+reactApp.getStore("user/index").call(type, params); //可以在外部直接调用方法 
 
 
-就是那么简单，clone 下来改吧改吧 。。。 时间有限，期待作者更新
+
+就是那么简单，clone 下来改吧改吧， 。。。 时间有限，期待作者更新
 
 下一步优化计划：
 
