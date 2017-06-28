@@ -26,14 +26,14 @@ function clean() {
  * @return {[type]} [description]
  */
 function watch() {
-  gulp.watch(["./src/modules/**/*.js", "./src/*.js"], gulp.series(gulp.task('eslint')));
+  gulp.watch(["./src/modules/**/*.js", "./src/app.js", "./src/config.js", "./src/RouteDispatch.js"], gulp.series(gulp.task('eslint')));
   //生成./src/main.js
   gulp.watch(["/src/modules/*/*.js"], gulp.series(gulp.task('makeEntry')));
 
 }
 
 gulp.task('eslint', () => {
-  return gulp.src(["./src/**/*.js"])
+  return gulp.src(["./src/modules/**/*.js", "./src/app.js", "./src/config.js", "./src/RouteDispatch.js"])
     .pipe(changed('eslint')) //// 和 newer 类似，过滤出改变了的 scripts
     .pipe(remember('eslint')) //// 找出所有的 scripts
 
