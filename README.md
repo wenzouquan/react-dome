@@ -1,9 +1,9 @@
 # 特性
 1、 react 
 
-2、redux 
+2、redux  （5.0.5）
 
-3、react-router-dom  
+3、react-router-dom  （版本4.1.1） 
 
 4、webpack （专注于模块化打包）
 
