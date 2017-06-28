@@ -1,0 +1,6 @@
+/*gulp makeEntry  里生成main.js，main的模板在devTool里*/
+import App from './app.js' 
+<%  for ( var  i=0; i<components.length; i++) { %>  
+App.components.<%-components[i]['name'] %> = require("<%-components[i]['path'] %>").default
+<% }%>
+App.run();
