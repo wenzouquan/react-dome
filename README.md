@@ -1,3 +1,16 @@
+# 使用前说明
+目前的配置一个模块会打包成一个js , 这种方法比较合适模块比较多的情况，这样完成按需加载
+
+如果模块比较少，可以选择其它的手脚架来进行开发 。
+
+比如说我之前做一个小项目一共加起来20多个模块的，那么我就选择使用vue.js ，所有模块里的js,html,css , 还有一些小图标，打包在一起不到100K ，再加上类库也不到500k的文件 ，然后服务器按50%左右压缩比 ，一般浏览器并发上限都可以一次性加载完所有资源，从而提高访问流畅性。
+
+所以我们根据自己的产品来选择合适的开发工具才是最重要的
+
+以下我要介绍的是使用react来开发自己的产品 ， 很合适多人团队开发，按模块分工合作，组件式开发。
+
+
+
 # 特性
 1、 react 
 
@@ -48,15 +61,21 @@ gulp
 2、在浏览器访问地址：http://localhost:3001/#/index/index 就可以访问到刚才生成的模块了
 
 
+
 # 模块目录
 
 <img src="https://static.oschina.net/uploads/space/2017/0628/222955_oHIk_1160364.png" >
 ```
 
 
+
+
+
 # 路由 
 
-如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 {id:12,name:'wen190'} ，访问此路由，第一次会自动调用init方法，请查看index.store.js。
+如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,url的参数为：{id:12,name:'wen190'} 
+
+
 
 # app.js 内置方法
 
@@ -77,6 +96,9 @@ reactApp.getStore("user/index").call(type, params); //可以在外部直接调�
 
 
 就是那么简单，clone 下来改吧改吧， 。。。 时间有限，还有很多需要改进的 ，期待作者更新，也欢迎给我建议，谢谢大家
+
+
+
 
 # 下一步优化计划：
 
