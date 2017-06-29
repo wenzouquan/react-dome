@@ -58,7 +58,9 @@ gulp
 
 一、 路由 
 
-如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 {id:12,name:'wen190'} 
+如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 
+
+{id:12,name:'wen190'} 
 
 访问此路由，第一次会自动调用init方法，请查看index.store.js。
 
@@ -69,7 +71,9 @@ gulp
 reactApp.getStore("user/index") ; //返回的是 user/index/index.store.js 的redux对象
 
 var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,oldVal){
+
 	console.log(newVal);
+	
 }) //监听 user/index 模块的state.userInfo值的变化  ， 一般使用场景 ，异步处理时，数据会来得晚一些
 
 reactApp.getStore("user/index").setState({}) ;//可以在外部执行修改数据
