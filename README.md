@@ -5,9 +5,9 @@
 
 3、react-router-dom  （版本4.1.1） 
 
-4、webpack 2.6.1（专注于模块化打包）
+4、webpack 2.6.1（模块化开发）
 
-5、gulp （专注于工作流，比如文件改变，自动载入组件）
+5、gulp CLI version 1.3.0 , Local version 4.0.0-alpha.2（工作流，比如文件改变，自动载入组件）
 
 6、eslint （js 检查）
 
