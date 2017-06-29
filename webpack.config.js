@@ -4,13 +4,11 @@ const glob = require('glob');
 const WebpackBrowserLog = require('webpack-browser-log');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Ex = require('extract-text-webpack-plugin');
+const compiler_public_path = 'http://localhost:3001/';
 var config = {
-
     entry: {
-        main: ['./src/main.js'],
+        main: ['./src/main.js'].concat(`webpack-hot-middleware/client?path=${compiler_public_path}__webpack_hmr`),
         reactPlugins: ['react-router-dom', 'react-redux', 'redux', 'history', 'n-zepto'],
-        // React: ['react', 'react-dom'],
-
     },
     output: {
         path: __dirname + '/dist/',
