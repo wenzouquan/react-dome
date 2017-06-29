@@ -92,6 +92,7 @@ var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,o
 }) 
 
 3、在外部直接修改state
+
 reactApp.getStore("user/index").setState({key:vaule}) ;
 
 4、在外部调用store里方法
