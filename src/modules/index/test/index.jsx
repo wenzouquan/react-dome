@@ -1,5 +1,6 @@
 //视图组件
 import indexReducer from "./index.store.js"
+import css from "./index.less";
 class indexComponent extends React.Component {
     render() {
       const {
