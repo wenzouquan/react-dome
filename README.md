@@ -53,17 +53,12 @@ gulp
 <img src="https://static.oschina.net/uploads/space/2017/0628/222955_oHIk_1160364.png" >
 ```
 
-# 常用方法
 
-一、 路由 
+# 路由 
 
-如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 
+如： http://localhost:3001/#/user/index/id/12/name/wen190  访问的目录 ./src/user/index ,参数可以对应的store获取 {id:12,name:'wen190'} ，访问此路由，第一次会自动调用init方法，请查看index.store.js。
 
-{id:12,name:'wen190'} 
-
-访问此路由，第一次会自动调用init方法，请查看index.store.js。
-
-二、app.js 内置方法
+# app.js 内置方法
 
 1、store，可通过操作数据来改变显示页面， 可以与服务器交互
 
@@ -81,9 +76,9 @@ reactApp.getStore("user/index").call(type, params); //可以在外部直接调�
 
 
 
-就是那么简单，clone 下来改吧改吧， 。。。 时间有限，期待作者更新
+就是那么简单，clone 下来改吧改吧， 。。。 时间有限，还有很多需要改进的 ，期待作者更新，也欢迎给我建议，谢谢大家
 
-下一步优化计划：
+# 下一步优化计划：
 
 1、多页面切换时，页面浏览位置不能变
 
