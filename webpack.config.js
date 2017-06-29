@@ -2,12 +2,13 @@
 var webpack = require("webpack");
 const glob = require('glob');
 const WebpackBrowserLog = require('webpack-browser-log');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Ex = require('extract-text-webpack-plugin');
 var config = {
 
     entry: {
         main: ['./src/main.js'],
-        reactPlugins: ['react-router-dom', 'react-redux', 'redux', 'history'],
+        reactPlugins: ['react-router-dom', 'react-redux', 'redux', 'history', 'n-zepto'],
         // React: ['react', 'react-dom'],
 
     },
@@ -19,47 +20,52 @@ var config = {
     },
     module: {
         rules: [{
-                test: /\.jsx$/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ["react", "es2015", "stage-0"],
-                    }
-                }, {
-                    loader: 'diy-loader?methods=ejs',
-                }]
-            }, { //生成入口文件
-                test: /\.entry$/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ["react", "es2015", "stage-0"],
-                    }
-                }, {
-                    loader: 'diy-loader?methods=makeEntry',
-                }]
+            test: /\.jsx$/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ["react", "es2015", "stage-0"],
+                }
             }, {
-                test: /\.js$/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ["react", "es2015", "stage-0"],
-                    }
-                }]
-            },
-
-            {
-                test: /\.less$/,
-                use: [{
-                    loader: 'style-loader'
-                }, {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                    }
-                }]
-            }
-        ]
+                loader: 'diy-loader?methods=ejs',
+            }]
+        }, { //生成入口文件
+            test: /\.entry$/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ["react", "es2015", "stage-0"],
+                }
+            }, {
+                loader: 'diy-loader?methods=makeEntry',
+            }]
+        }, {
+            test: /\.js$/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ["react", "es2015", "stage-0"],
+                }
+            }]
+        }, {
+            test: /\.less$/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                }
+            }, {
+                loader: 'less-loader'
+            }]
+        }, {
+            test: /\.css$/,
+            use: Ex.extract({
+                fallback: 'style-loader',
+                use: 'css-loader!less-loader?options=modules'
+            })
+        }]
     },
 
     externals: {
@@ -68,12 +74,7 @@ var config = {
     },
 
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     },
-        //     minify: false,
-        // }),
+
         // new webpack.HotModuleReplacementPlugin(),
         // 开启全局的模块热替换（HMR）
         //提供全局的变量，在模块中使用无需用require引入
@@ -81,9 +82,8 @@ var config = {
         // new webpack.optimize.CommonsChunkPlugin('webpack.common'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'webpack.common', // 注意不要.js后缀
-            chunks: ['main', 'reactVendor']
         }),
-
+        new Ex('style.css'),
         // css抽取
         //new webpack.extractTextPlugin("[name].css"),
 
