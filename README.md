@@ -77,25 +77,30 @@ gulp
 
 
 
-# app.js 内置方法
+# redux对象store
 
-1、store，可通过操作数据来改变显示页面， 可以与服务器交互
+1、获取模块的store
 
 reactApp.getStore("user/index") ; //返回的是 user/index/index.store.js 的redux对象
+
+2、监听store里的state对象发生变化
 
 var unwatch = reactApp.getStore("user/index").watch("userInfo",function(newVal,oldVal){
 
 	console.log(newVal);
 	
-}) //监听 user/index 模块的state.userInfo值的变化  ， 一般使用场景 ，异步处理时，数据会来得晚一些
+}) 
 
-reactApp.getStore("user/index").setState({}) ;//可以在外部执行修改数据
+3、在外部直接修改state
+reactApp.getStore("user/index").setState({key:vaule}) ;
+
+4、在外部调用store里方法
 
 reactApp.getStore("user/index").call(type, params); //可以在外部直接调用方法 
 
 
 
-就是那么简单，clone 下来改吧改吧， 。。。 时间有限，还有很多需要改进的 ，期待作者更新，也欢迎给我建议，谢谢大家
+就是那么简单，clone 下来改吧改吧， 。。。 时间有限，还有很多需要改进的 ，欢迎给我建议或意见，谢谢大家
 
 
 
