@@ -39,14 +39,13 @@ gulp
 如果一切顺利： http://localhost:3001 就可以访问首页了
 
 
-# 用起来真的很简单
+# 添加新模块
 
-想添加一个新模块？ 
 
-那么可以在根目录（react-dome）下执行 npm run mod index/index , 这样就会在 src/modules目录，生成对应该的模块
 
-然后不需要配置，在浏览器访问地址：http://localhost:3001/#/index/index 就可以访问到刚才生成的模块了。
+1、那么可以在根目录（react-dome）下执行 npm run mod index/index , 这样就会在 src/modules目录，生成对应的模块
 
+2、在浏览器访问地址：http://localhost:3001/#/index/index 就可以访问到刚才生成的模块了
 
 
 # 模块目录
